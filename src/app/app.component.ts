@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-calculator-app';
+  subDisplayText = '';
+  mainDisplayText = '';
+
+  pressKey(key: string) {
+    this.mainDisplayText += key;
+  }
+  allClear() {
+    this.mainDisplayText = '';
+    this.subDisplayText = '';
+  }
+  getAnswer() {
+    this.subDisplayText = this.mainDisplayText;
+    this.mainDisplayText = eval(this.mainDisplayText);
+  }
 }
